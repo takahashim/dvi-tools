@@ -1,0 +1,277 @@
+\documentclass[10pt,twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in,columnsep=0.25in]{geometry}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{changepage}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO,RE]{Layout Test Document}
+\fancyfoot[C]{Complex Layout Testing}
+
+\title{Advanced Layout Testing Document}
+\author{DVI Tools Layout Analysis}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Two-Column Layout}
+
+This document is set in two-column mode to test complex page layout parsing. The DVI file will contain intricate positioning commands to handle the column breaks and text flow.
+
+\lipsum[1]
+
+\subsection{Column Break Control}
+
+Text before manual column break.
+
+\columnbreak
+
+Text after manual column break in the second column.
+
+\lipsum[2]
+
+\section{Multi-Column Environments}
+
+\begin{multicols}{3}
+\subsection{Three-Column Section}
+This section uses the multicols environment to create three columns. Each column should be narrow and contain flowing text.
+
+Column 1 content with various text formatting. \textbf{Bold text} and \textit{italic text} within the narrow columns.
+
+Column continues with more content to fill the space and demonstrate text flow across multiple narrow columns.
+
+\columnbreak
+
+Middle column starts here with different content. The positioning of text in the middle column requires precise DVI commands.
+
+Mathematical expressions in narrow columns: $E = mc^2$ and $\pi \approx 3.14159$.
+
+\columnbreak
+
+Third column contains the final portion of the multi-column text. This tests the DVI parser's ability to handle complex column layouts.
+
+Final content in the rightmost column with special characters: \&, \%, \$, \#, \_, \{, \}.
+\end{multicols}
+
+\section{Floating Elements}
+
+\subsection{Figure Placement}
+
+\begin{figure}[h]
+\centering
+\rule{5cm}{3cm}
+\caption{A placeholder figure in two-column layout}
+\label{fig:placeholder}
+\end{figure}
+
+Figure~\ref{fig:placeholder} demonstrates floating element positioning in a two-column document. The DVI commands for figure placement are complex.
+
+\lipsum[3]
+
+\subsection{Wrapped Text Around Graphics}
+
+\begin{wrapfigure}{r}{0.3\linewidth}
+\centering
+\rule{2cm}{2cm}
+\caption{Wrapped figure}
+\label{fig:wrapped}
+\end{wrapfigure}
+
+This paragraph contains wrapped text around Figure~\ref{fig:wrapped}. The wrapfig package creates complex positioning that requires sophisticated DVI commands for proper text flow.
+
+The text continues to wrap around the figure, demonstrating how the DVI format handles non-rectangular text areas and complex geometric layouts.
+
+More wrapped text to fill the space and show the complete wrapping behavior around the floating graphic element.
+
+\lipsum[4]
+
+\section{Indentation and Spacing Variations}
+
+\subsection{Paragraph Indentation}
+
+Normal paragraph with standard indentation. The first line is indented according to the document class settings.
+
+\noindent This paragraph has no indentation due to the noindent command. The DVI positioning reflects this spacing change.
+
+\begin{quote}
+This is a quoted paragraph with different margin settings. The left and right margins are increased, creating a block quote effect in the DVI layout.
+\end{quote}
+
+\begin{quotation}
+This quotation environment creates different spacing and indentation patterns compared to the quote environment. The DVI file will show these layout differences.
+\end{quotation}
+
+\subsection{Custom Indentation}
+
+\begin{adjustwidth}{2cm}{1cm}
+This text block uses the adjustwidth environment to create custom left and right margins. The left margin is increased by 2cm and the right margin by 1cm.
+
+This creates asymmetric layout that tests the DVI parser's handling of non-standard text positioning and margin calculations.
+\end{adjustwidth}
+
+\section{List Layouts in Columns}
+
+\subsection{Itemized Lists}
+
+\begin{itemize}
+\item First item in two-column layout
+\item Second item with longer text that may wrap within the narrow column width
+\item Third item with mathematical content: $\sum_{i=1}^n i = \frac{n(n+1)}{2}$
+\item Fourth item testing special characters: \textbf{bold}, \textit{italic}, \texttt{mono}
+\end{itemize}
+
+\subsection{Enumerated Lists}
+
+\begin{enumerate}
+\item Numbered item one
+\item Numbered item two with extended content that spans multiple lines within the column constraints
+\item Mathematical numbered item: $\int_0^1 x^2 dx = \frac{1}{3}$
+\item Final numbered item
+\end{enumerate}
+
+\section{Table Layouts}
+
+\subsection{Simple Table in Columns}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+A & B & C \\
+\hline
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+\hline
+\end{tabular}
+\caption{Simple table in two-column layout}
+\end{table}
+
+\subsection{Wide Table Spanning Columns}
+
+\begin{table*}[t]
+\centering
+\begin{tabular}{|l|c|r|p{3cm}|c|}
+\hline
+Left & Center & Right & Paragraph & Math \\
+\hline
+Item 1 & 100 & \$50.00 & Long text content & $x^2$ \\
+Item 2 & 200 & \$75.50 & More paragraph text & $y^3$ \\
+Item 3 & 150 & \$62.25 & Final description & $z^4$ \\
+\hline
+\end{tabular}
+\caption{Wide table spanning both columns}
+\end{table*}
+
+The table above spans both columns using the table* environment, creating complex layout positioning in the DVI file.
+
+\section{Page Layout Testing}
+
+\subsection{Manual Spacing}
+
+Text with manual spacing controls:
+
+\vspace{0.5cm}
+Vertical space above this line.
+
+Text with horizontal spacing: \hspace{1cm} indented portion.
+
+\vspace{1cm}
+Larger vertical space to test DVI spacing commands.
+
+\subsection{Line Spacing Variations}
+
+{\baselineskip=1.5\baselineskip
+This paragraph has increased line spacing using baselineskip modification. The lines are spaced 1.5 times the normal distance.
+
+Multiple lines of text with increased spacing to demonstrate the effect on DVI positioning commands.
+}
+
+{\baselineskip=0.8\baselineskip
+This paragraph has decreased line spacing. The lines are closer together than normal.
+
+Compressed text layout for DVI analysis.
+}
+
+\section{Complex Positioning}
+
+\subsection{Overlapping and Absolute Positioning}
+
+Normal text flow continues here.
+
+\hbox to 0pt{%
+\hspace{-2cm}%
+\vbox{%
+\hsize=4cm
+\textbf{Overlaid text box} that appears to the left of the normal text flow.
+This tests complex positioning in DVI.
+}%
+\hss
+}
+
+The normal text continues after the overlaid box, demonstrating how DVI handles overlapping content and absolute positioning.
+
+\lipsum[5]
+
+\subsection{Zero-Width and Zero-Height Boxes}
+
+Text before zero-width content.%
+\hbox to 0pt{ZERO WIDTH\hss}%
+Text after zero-width insertion.
+
+\vbox to 0pt{%
+ZERO HEIGHT BOX
+\vss
+}%
+
+Text continues after zero-height box insertion.
+
+\section{Font Size Mixing in Layout}
+
+{\tiny Tiny text} mixed with {\normalsize normal text} and {\Large large text} in the same line creates complex vertical alignment challenges for DVI parsing.
+
+\begin{center}
+{\Huge HUGE CENTERED}\\
+{\large with large subtitle}\\
+{\small and small details}
+\end{center}
+
+Mixed sizing within paragraphs: Start with normal text, then {\scriptsize switch to script size for some words}, back to normal, then {\LARGE LARGE for emphasis}, and finally {\footnotesize footnote size to end}.
+
+\section{Final Layout Tests}
+
+\onecolumn
+
+\section{Single Column Return}
+
+This section returns to single-column layout to test the transition from two-column to one-column within the same document.
+
+\lipsum[6-7]
+
+\begin{multicols}{4}
+Final four-column section to test narrow column handling and complex text flow patterns that create intricate DVI positioning commands.
+
+Column 1 of 4 with tightly packed text and minimal spacing.
+
+\columnbreak
+
+Column 2 with mathematical content: $\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$.
+
+\columnbreak
+
+Column 3 with special formatting: \textbf{bold}, \textit{italic}, \texttt{monospace}.
+
+\columnbreak
+
+Final column 4 with mixed content and complex character positioning.
+\end{multicols}
+
+\end{document}

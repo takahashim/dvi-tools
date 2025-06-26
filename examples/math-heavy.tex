@@ -1,0 +1,215 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{bm}
+
+\title{Mathematics-Heavy Document for DVI Testing}
+\author{DVI Tools Mathematical Test}
+\date{\today}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{definition}{Definition}
+
+\begin{document}
+
+\maketitle
+
+\section{Advanced Mathematical Notation}
+
+\subsection{Complex Fractions and Nested Expressions}
+
+\begin{equation}
+\cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\cfrac{1}{1+\ddots}}}}
+\end{equation}
+
+\begin{equation}
+\left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\right)\psi = \nabla^2\psi
+\end{equation}
+
+\subsection{Large Operators and Delimiters}
+
+\begin{equation}
+\biggl(\frac{1}{N}\sum_{i=1}^{N} X_i\biggr)^2 \leq \frac{1}{N}\sum_{i=1}^{N} X_i^2
+\end{equation}
+
+\begin{equation}
+\left\langle \psi \left| \hat{H} \right| \phi \right\rangle = \int_{-\infty}^{\infty} \psi^*(x) \hat{H} \phi(x) dx
+\end{equation}
+
+\subsection{Multi-line Equations with Alignment}
+
+\begin{align}
+\sin(A \pm B) &= \sin A \cos B \pm \cos A \sin B \\
+\cos(A \pm B) &= \cos A \cos B \mp \sin A \sin B \\
+\tan(A \pm B) &= \frac{\tan A \pm \tan B}{1 \mp \tan A \tan B}
+\end{align}
+
+\begin{gather}
+(a + b)^2 = a^2 + 2ab + b^2 \\
+(a - b)^2 = a^2 - 2ab + b^2 \\
+(a + b)(a - b) = a^2 - b^2
+\end{gather}
+
+\section{Advanced Symbols and Operators}
+
+\subsection{Set Theory and Logic}
+\begin{equation}
+\forall x \in \mathbb{R}, \exists \delta > 0 \text{ such that } |f(x) - L| < \epsilon \Rightarrow |x - a| < \delta
+\end{equation}
+
+\begin{equation}
+A \cup B = \{x : x \in A \vee x \in B\}
+\end{equation}
+
+\begin{equation}
+\mathcal{P}(S) = \{T : T \subseteq S\}
+\end{equation}
+
+\subsection{Probability and Statistics}
+\begin{equation}
+P(A|B) = \frac{P(A \cap B)}{P(B)} \text{ where } P(B) > 0
+\end{equation}
+
+\begin{equation}
+\mathbb{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx
+\end{equation}
+
+\begin{equation}
+\text{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
+\end{equation}
+
+\section{Theorems and Proofs}
+
+\begin{theorem}[Fundamental Theorem of Calculus]
+If $f$ is continuous on $[a,b]$ and $F(x) = \int_a^x f(t) dt$, then $F'(x) = f(x)$ for all $x \in [a,b]$.
+\end{theorem}
+
+\begin{proof}
+Let $h \neq 0$ be such that $x + h \in [a,b]$. Then:
+\begin{align}
+F(x+h) - F(x) &= \int_a^{x+h} f(t) dt - \int_a^x f(t) dt \\
+&= \int_x^{x+h} f(t) dt
+\end{align}
+By the Mean Value Theorem for integrals, there exists $c \in [x, x+h]$ such that:
+\begin{equation}
+\int_x^{x+h} f(t) dt = f(c) \cdot h
+\end{equation}
+Therefore:
+\begin{equation}
+\frac{F(x+h) - F(x)}{h} = f(c)
+\end{equation}
+As $h \to 0$, we have $c \to x$, and by continuity of $f$:
+\begin{equation}
+\lim_{h \to 0} \frac{F(x+h) - F(x)}{h} = \lim_{h \to 0} f(c) = f(x)
+\end{equation}
+\end{proof}
+
+\begin{lemma}
+For any real numbers $a$ and $b$:
+\begin{equation}
+|a + b| \leq |a| + |b|
+\end{equation}
+\end{lemma}
+
+\section{Complex Mathematical Structures}
+
+\subsection{Matrices and Determinants}
+\begin{equation}
+\det\begin{pmatrix}
+a & b & c \\
+d & e & f \\
+g & h & i
+\end{pmatrix} = a(ei - fh) - b(di - fg) + c(dh - eg)
+\end{equation}
+
+\begin{equation}
+\mathbf{A}^{-1} = \frac{1}{\det(\mathbf{A})} \text{adj}(\mathbf{A})
+\end{equation}
+
+\subsection{Vector Calculus}
+\begin{align}
+\nabla f &= \frac{\partial f}{\partial x}\mathbf{i} + \frac{\partial f}{\partial y}\mathbf{j} + \frac{\partial f}{\partial z}\mathbf{k} \\
+\nabla \cdot \mathbf{F} &= \frac{\partial F_x}{\partial x} + \frac{\partial F_y}{\partial y} + \frac{\partial F_z}{\partial z} \\
+\nabla \times \mathbf{F} &= \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+F_x & F_y & F_z
+\end{vmatrix}
+\end{align}
+
+\section{Special Functions and Series}
+
+\subsection{Taylor and Fourier Series}
+\begin{equation}
+e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+\end{equation}
+
+\begin{equation}
+\sin x = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \cdots
+\end{equation}
+
+\begin{equation}
+f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} \left(a_n \cos\frac{n\pi x}{L} + b_n \sin\frac{n\pi x}{L}\right)
+\end{equation}
+
+\subsection{Special Functions}
+\begin{equation}
+\Gamma(z) = \int_0^{\infty} t^{z-1} e^{-t} dt, \quad \Re(z) > 0
+\end{equation}
+
+\begin{equation}
+B(x,y) = \int_0^1 t^{x-1}(1-t)^{y-1} dt = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
+\end{equation}
+
+\begin{equation}
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1-p^{-s}}
+\end{equation}
+
+\section{Differential Equations}
+
+\subsection{Ordinary Differential Equations}
+\begin{equation}
+\frac{dy}{dx} + P(x)y = Q(x)
+\end{equation}
+
+Solution: $y = e^{-\int P(x)dx} \left(\int Q(x)e^{\int P(x)dx} dx + C\right)$
+
+\subsection{Partial Differential Equations}
+Heat equation:
+\begin{equation}
+\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
+\end{equation}
+
+Wave equation:
+\begin{equation}
+\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
+\end{equation}
+
+Laplace equation:
+\begin{equation}
+\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0
+\end{equation}
+
+\section{Complex Analysis}
+
+\subsection{Complex Functions}
+\begin{equation}
+f(z) = u(x,y) + iv(x,y), \quad z = x + iy
+\end{equation}
+
+Cauchy-Riemann equations:
+\begin{align}
+\frac{\partial u}{\partial x} &= \frac{\partial v}{\partial y} \\
+\frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}
+\end{align}
+
+\subsection{Residue Theorem}
+\begin{equation}
+\oint_C f(z) dz = 2\pi i \sum_{k} \text{Res}(f, z_k)
+\end{equation}
+
+where the sum is over all singularities $z_k$ inside the contour $C$.
+
+\end{document}
