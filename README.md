@@ -22,12 +22,50 @@ A Ruby-based command-line tool (`dvit`) for analyzing and comparing TeX DVI (Dev
 - Ruby 3.4 or higher
 - Bundler gem
 
-### Setup
+### From RubyGems (Recommended)
 
 ```bash
+gem install dvi-tools
+```
+
+After installation, the `dvit` command will be available globally:
+
+```bash
+dvit --help
+dvit parse document.dvi
+dvit diff old.dvi new.dvi
+```
+
+### From Source
+
+```bash
+# Clone the repository
 git clone https://github.com/takahashim/dvi-tools.git
 cd dvi-tools
+
+# Install dependencies
 bundle install
+
+# Build and install the gem locally
+gem build dvi-tools.gemspec
+gem install ./dvi-tools-*.gem
+
+# Or use Bundler's rake task
+bundle exec rake install
+```
+
+### Development Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/takahashim/dvi-tools.git
+cd dvi-tools
+
+# Install dependencies including development dependencies
+bundle install
+
+# Run tests to verify setup
+bundle exec rspec
 ```
 
 ## Usage
@@ -38,48 +76,48 @@ bundle install
 
 ```bash
 # Basic parsing
-ruby -I lib exe/dvit parse examples/simple.dvi
+dvit parse examples/simple.dvi
 
 # Detailed output
-ruby -I lib exe/dvit parse examples/complex.dvi --format=detailed
+dvit parse examples/complex.dvi --format=detailed
 
 # JSON output for programmatic use
-ruby -I lib exe/dvit parse examples/simple.dvi --format=json
+dvit parse examples/simple.dvi --format=json
 ```
 
 #### Compare DVI Files
 
 ```bash
 # Basic comparison
-ruby -I lib exe/dvit diff examples/simple.dvi examples/complex.dvi
+dvit diff examples/simple.dvi examples/complex.dvi
 
 # Detailed comparison (shows all differences without truncation)
-ruby -I lib exe/dvit diff --detailed examples/simple.dvi examples/math-heavy.dvi
+dvit diff --detailed examples/simple.dvi examples/math-heavy.dvi
 
 # Layout-only comparison
-ruby -I lib exe/dvit diff --layout-only examples/simple.dvi examples/layout-test.dvi
+dvit diff --layout-only examples/simple.dvi examples/layout-test.dvi
 
 # Content-only comparison
-ruby -I lib exe/dvit diff --content-only examples/sample.dvi examples/multilingual.dvi
+dvit diff --content-only examples/sample.dvi examples/multilingual.dvi
 ```
 
 #### Analyze Specific Aspects
 
 ```bash
 # Font usage analysis
-ruby -I lib exe/dvit analyze fonts examples/math-heavy.dvi
+dvit analyze fonts examples/math-heavy.dvi
 
 # Layout structure analysis
-ruby -I lib exe/dvit analyze layout examples/layout-test.dvi
+dvit analyze layout examples/layout-test.dvi
 
 # Content extraction
-ruby -I lib exe/dvit analyze content examples/complex.dvi
+dvit analyze content examples/complex.dvi
 
 # Character positioning
-ruby -I lib exe/dvit analyze positions examples/simple.dvi
+dvit analyze positions examples/simple.dvi
 
 # Text extraction
-ruby -I lib exe/dvit analyze text examples/multilingual.dvi
+dvit analyze text examples/multilingual.dvi
 ```
 
 ## Example Output
