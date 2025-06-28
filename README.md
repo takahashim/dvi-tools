@@ -25,7 +25,7 @@ A Ruby-based command-line tool (`dvit`) for analyzing and comparing TeX DVI (Dev
 ### Setup
 
 ```bash
-git clone https://github.com/yourusername/dvi-tools.git
+git clone https://github.com/takahashim/dvi-tools.git
 cd dvi-tools
 bundle install
 ```

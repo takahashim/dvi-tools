@@ -5,12 +5,12 @@ require_relative 'lib/dvi_tools/version'
 Gem::Specification.new do |spec|
   spec.name = 'dvi-tools'
   spec.version = DviTools::VERSION
-  spec.authors = ['Your Name']
-  spec.email = ['your.email@example.com']
+  spec.authors = ['takahashim']
+  spec.email = ['takahasshimm@gmail.com']
 
   spec.summary = 'A Ruby toolkit for analyzing and comparing TeX DVI files'
   spec.description = 'DVI Tools provides functionality to parse, analyze, and compare TeX DVI files, helping identify differences in LaTeX build outputs.'
-  spec.homepage = 'https://github.com/yourusername/dvi-tools'
+  spec.homepage = 'https://github.com/takahashim/dvi-tools'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 3.4.0'
 
