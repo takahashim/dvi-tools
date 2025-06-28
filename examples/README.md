@@ -88,58 +88,58 @@ Some documents may produce warnings or require missing packages:
 
 ```bash
 # From the project root directory:
-ruby -I lib -r bundler/setup exe/dvi-tools <command> examples/<file>.dvi
+ruby -I lib -r bundler/setup exe/dvit <command> examples/<file>.dvi
 ```
 
 ### Parsing Tests
 
 ```bash
 # Simple document analysis
-ruby -I lib exe/dvi-tools parse examples/simple.dvi
+ruby -I lib exe/dvit parse examples/simple.dvi
 
 # Complex document with detailed output
-ruby -I lib exe/dvi-tools parse examples/complex.dvi --format=detailed
+ruby -I lib exe/dvit parse examples/complex.dvi --format=detailed
 
 # Mathematical document analysis
-ruby -I lib exe/dvi-tools parse examples/math-heavy.dvi
+ruby -I lib exe/dvit parse examples/math-heavy.dvi
 
 # JSON output for programmatic use
-ruby -I lib exe/dvi-tools parse examples/simple.dvi --format=json
+ruby -I lib exe/dvit parse examples/simple.dvi --format=json
 ```
 
 ### Comparison Tests
 
 ```bash
 # Basic vs complex document comparison
-ruby -I lib exe/dvi-tools diff examples/simple.dvi examples/complex.dvi
+ruby -I lib exe/dvit diff examples/simple.dvi examples/complex.dvi
 
 # Detailed comparison report
-ruby -I lib exe/dvi-tools diff --detailed examples/simple.dvi examples/math-heavy.dvi
+ruby -I lib exe/dvit diff --detailed examples/simple.dvi examples/math-heavy.dvi
 
 # Layout-focused comparison
-ruby -I lib exe/dvi-tools diff --layout-only examples/simple.dvi examples/layout-test.dvi
+ruby -I lib exe/dvit diff --layout-only examples/simple.dvi examples/layout-test.dvi
 
 # Content-only comparison
-ruby -I lib exe/dvi-tools diff --content-only examples/sample.dvi examples/multilingual.dvi
+ruby -I lib exe/dvit diff --content-only examples/sample.dvi examples/multilingual.dvi
 ```
 
 ### Detailed Analysis
 
 ```bash
 # Font usage analysis
-ruby -I lib exe/dvi-tools analyze fonts examples/math-heavy.dvi
+ruby -I lib exe/dvit analyze fonts examples/math-heavy.dvi
 
 # Layout structure analysis  
-ruby -I lib exe/dvi-tools analyze layout examples/layout-test.dvi
+ruby -I lib exe/dvit analyze layout examples/layout-test.dvi
 
 # Content extraction
-ruby -I lib exe/dvi-tools analyze content examples/complex.dvi
+ruby -I lib exe/dvit analyze content examples/complex.dvi
 
 # Character position analysis
-ruby -I lib exe/dvi-tools analyze positions examples/simple.dvi
+ruby -I lib exe/dvit analyze positions examples/simple.dvi
 
 # Text extraction
-ruby -I lib exe/dvi-tools analyze text examples/multilingual.dvi
+ruby -I lib exe/dvit analyze text examples/multilingual.dvi
 ```
 
 ## Parser Testing Scenarios
